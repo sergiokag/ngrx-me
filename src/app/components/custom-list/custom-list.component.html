@@ -1,0 +1,24 @@
+
+<h2>
+   {{ customTitle }}
+</h2>
+
+<div *ngIf="customList.length; else alternative" >
+   <ul *ngFor="let item of customList; let i = index;">
+     <li>
+       <span style="display: inline-block; margin-right: 10px;">{{ item }}</span>
+       <button
+          class="btn btn-info"
+          style="margin-right: 10px;"
+          (click)="sendItemToHateList(i)">Switch</button>
+       <button
+          class="btn btn-danger"
+          (click)="removeThisItem(i)">Remove</button>
+    </li>
+   </ul>
+</div>
+
+<ng-template #alternative>
+  There is not something here yet.
+  Please try later.
+</ng-template>
