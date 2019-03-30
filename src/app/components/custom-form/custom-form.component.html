@@ -1,0 +1,41 @@
+<form
+  [formGroup]="form"
+  autocomplete="off">
+
+    <!-- row 1 -->
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="categoryInput">Select category</label>
+        <select
+            formControlName="CategoryList"
+            name="categoryInput"
+            id="categoryInput"
+            class="form-control">
+          <option
+              *ngFor="let cat of categories; let i = index;"
+              value="{{ cat }}"
+              >{{ cat }}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="titleInput">Title</label>
+        <input
+            formControlName="TitleInput"
+            type="text"
+            name="titleInput"
+            id="titleInput"
+            class="form-control">
+      </div>
+    </div>
+    <!-- end row 1 -->
+
+    <!-- row 2 -->
+    <div class="form-row">
+      <div class="form-group col d-flex">
+        <button type="submit" class="btn btn-success" [disabled]="form.invalid" style="margin-right: 10px;">Submit</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+      </div>
+    </div>
+    <!-- end row 2 -->
+
+</form>
