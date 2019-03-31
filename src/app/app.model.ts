@@ -1,4 +1,5 @@
+import { FormState } from './components/custom-form/custom-form.model';
+
 export interface IAppState {
-  likes: string[];
-  dislikes: string[];
+  formState: FormState;
 };

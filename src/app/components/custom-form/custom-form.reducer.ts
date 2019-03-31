@@ -1,6 +1,7 @@
 import * as FormSubmitActions from './custom-form.action';
+import { FormState } from './custom-form.model';
 
-const initialState = {
+const initialState: FormState  = {
   CategoryList: null,
   TitleInput: null
 };
@@ -16,4 +17,4 @@ export function reducer( state = initialState , action: FormSubmitActions.Submit
     default:
      return state;
   };
-}
+};

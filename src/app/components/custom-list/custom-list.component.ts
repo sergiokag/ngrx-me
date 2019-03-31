@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CustomListComponent implements OnInit {
 
-  @Input() customTitle: string = '';
-  @Input() customList: string[] = [];
+  @Input() customTitle: string = ''; // tmp getters and setters
+  @Input() customList: string[] = []; // tmp getters and setters
 
   constructor() {
   }
