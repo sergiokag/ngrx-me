@@ -32,7 +32,12 @@
     <!-- row 2 -->
     <div class="form-row">
       <div class="form-group col d-flex">
-        <button type="submit" class="btn btn-success" [disabled]="form.invalid" style="margin-right: 10px;">Submit</button>
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="form.invalid"
+          style="margin-right: 10px;"
+          (click)="onSubmit()">Submit</button>
         <button type="reset" class="btn btn-secondary">Reset</button>
       </div>
     </div>

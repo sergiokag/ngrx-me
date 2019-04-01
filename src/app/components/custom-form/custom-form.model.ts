@@ -1,1 +1,1 @@
-export interface FormState { CategoryList: string, TitleInput: string }
+export interface FormState { Category: string, Title: string }
