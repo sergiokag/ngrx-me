@@ -6,7 +6,7 @@
 <div *ngIf="customList.length; else alternative" >
    <ul *ngFor="let item of customList; let i = index;">
      <li>
-       <span style="display: inline-block; margin-right: 10px;">{{ item }}</span>
+       <span style="display: inline-block; margin-right: 10px;">{{ item.value }}</span>
        <button
           class="btn btn-info"
           style="margin-right: 10px;"

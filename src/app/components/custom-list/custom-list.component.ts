@@ -7,14 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CustomListComponent implements OnInit {
 
-  @Input() customTitle: string = ''; // tmp getters and setters
-  @Input() customList: string[] = []; // tmp getters and setters
+  @Input() customTitle: string = '';
+  @Input() customList: string[] = [];
 
   constructor() {
   }
 
   ngOnInit() {
-
     console.log(this); // it creates an object that corresponds to an DOM element
   }
 

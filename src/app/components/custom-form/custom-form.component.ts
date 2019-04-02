@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { FormState } from './custom-form.model';
-import * as FormActions from './custom-form.action';
+import { AppState } from './custom-form.model';
+import * as AppActions from './custom-form.action';
 
 @Component({
   selector: 'app-form',
@@ -24,18 +24,18 @@ export class CustomFormComponent implements OnInit, OnDestroy {
     TitleInput: [ null, [ Validators.required ]]
   });
 
-  formObj: FormState;
+  state: AppState;
 
   constructor(
     private fb: FormBuilder,
-    private store: Store<FormState>
+    private store: Store<AppState>
   ) {}
 
   ngOnInit() {
-    this.sub = this.store.pipe<FormState>(
-                  select('form') // from formState in the index reducer
+    this.sub = this.store.pipe<AppState>(
+                  select('app') // from appState in the index reducer
                ).subscribe(state => {
-                  this.formObj = { ...state };
+                  this.state = { ...state };
                });
   }
 
@@ -44,11 +44,26 @@ export class CustomFormComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    // dispatching action to form reducer
-    this.store.dispatch( new FormActions.SubmitForm({
-      Category: this.form.get('CategoryList').value,
-      Title: this.form.get('TitleInput').value
-     }) );
+    //dispatching action to form reducer
+
+    const _selectControl = this.form.get('CategoryList');
+    const _titleControl = this.form.get('TitleInput');
+
+    console.log(_selectControl.value)
+
+    if( _selectControl.value === 'Like' ) {
+      this.store.dispatch( new AppActions.AddToLikeList({
+        id: Date.now() * Math.random(),
+        value: _titleControl.value
+      }));
+    }
+
+    if( _selectControl.value === 'Dislike' ) {
+      this.store.dispatch( new AppActions.AddToHateList({
+        id: Date.now() * Math.random(),
+        value: _titleControl.value
+      }));
+    }
   }
 
 }

@@ -1,5 +1,5 @@
-import { FormState } from './components/custom-form/custom-form.model';
+import { AppState } from './components/custom-form/custom-form.model';
 
 export interface IAppState {
-  form: FormState;
+  app: AppState;
 };
