@@ -7,7 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { CustomListComponent } from './components/custom-list/custom-list.component';
 import { CustomFormComponent } from './components/custom-form/custom-form.component';
-import { reducers } from './reducers';
+import { reducer } from './reducer';
 import { environment } from 'src/environments/environment.prod';
 
 
@@ -20,7 +20,7 @@ import { environment } from 'src/environments/environment.prod';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducer),
     StoreDevtoolsModule.instrument({
       name: 'Learning Ngrx',
       maxAge: 25,

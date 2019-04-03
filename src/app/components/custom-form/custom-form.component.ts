@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from './custom-form.model';
 import * as AppActions from './custom-form.action';
@@ -10,7 +10,7 @@ import * as AppActions from './custom-form.action';
   templateUrl: './custom-form.component.html',
   styleUrls: ['./custom-form.component.scss']
 })
-export class CustomFormComponent implements OnInit, OnDestroy {
+export class CustomFormComponent {
 
   categories: string[] = [
     'Like',
@@ -28,28 +28,14 @@ export class CustomFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private store: Store<AppState>
+    private store: Store<AppState> // Normally State from reducer
   ) {}
-
-  ngOnInit() {
-    this.sub = this.store.pipe<AppState>(
-                  select('app') // from appState in the index reducer
-               ).subscribe(state => {
-                  this.state = { ...state };
-               });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
 
   onSubmit(): void {
     //dispatching action to form reducer
 
     const _selectControl = this.form.get('CategoryList');
     const _titleControl = this.form.get('TitleInput');
-
-    console.log(_selectControl.value)
 
     if( _selectControl.value === 'Like' ) {
       this.store.dispatch( new AppActions.AddToLikeList({

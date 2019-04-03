@@ -10,15 +10,10 @@ export class CustomListComponent implements OnInit {
   @Input() customTitle: string = '';
   @Input() customList: string[] = [];
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
-    console.log(this); // it creates an object that corresponds to an DOM element
-  }
-
-  sendItemToHateList(index): void {
-    console.log(`Sending item with index ${index} to hate list`);
+    //console.log(this); // it creates an object that corresponds to an DOM element
   }
 
   removeThisItem(index): void {

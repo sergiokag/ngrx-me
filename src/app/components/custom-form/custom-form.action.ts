@@ -7,9 +7,7 @@ export const ADD_TO_LIKE_LIST = '[CustomApp] ADD_TO_LIKE_LIST';
 
 export const ADD_TO_HATE_LIST = '[CustomApp] ADD_TO_HATE_LIST';
 
-export const REMOVE_FROM_LIKE_LIST = '[CustomApp] REMOVE_FROM_LIKE_LIST';
-
-export const REMOVE_FROM_HATE_LIST = '[CustomApp] REMOVE_FROM_HATE_LIST';
+export const REMOVE_FROM_LIST = '[CustomApp] REMOVE_FROM_LIKE_LIST';
 
 // step 3: create action creators
 export class AddToLikeList implements Action {
@@ -22,15 +20,10 @@ export class AddToHateList implements Action {
   constructor(readonly payload: ListItem) {}
 }
 
-export class RemoveFromLikeList implements Action {
-  readonly type = REMOVE_FROM_LIKE_LIST;
-  constructor(readonly payload: ListItem) {}
-}
-
-export class RemoveFromHateList implements Action {
-  readonly type = REMOVE_FROM_HATE_LIST;
+export class RemoveFromList implements Action {
+  readonly type = REMOVE_FROM_LIST;
   constructor(readonly payload: ListItem) {}
 }
 
 // step 4: export action creators | action types
-export type AppActions = AddToLikeList | AddToHateList | RemoveFromLikeList | RemoveFromHateList;
+export type AppActions = AddToLikeList | AddToHateList | RemoveFromList;
