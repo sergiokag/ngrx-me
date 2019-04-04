@@ -1,6 +1,6 @@
 // step 1: import Action from ngrx/store and payload interfaces
 import { Action } from '@ngrx/store';
-import { AppState, ListItem } from './custom-form.model';
+import { ListItem } from './custom-form.model';
 
 // step 2: create actions
 export const ADD_TO_LIKE_LIST = '[CustomApp] ADD_TO_LIKE_LIST';
@@ -22,7 +22,7 @@ export class AddToHateList implements Action {
 
 export class RemoveFromList implements Action {
   readonly type = REMOVE_FROM_LIST;
-  constructor(readonly payload: ListItem) {}
+  constructor(readonly payload: ListItem ) {}
 }
 
 // step 4: export action creators | action types
